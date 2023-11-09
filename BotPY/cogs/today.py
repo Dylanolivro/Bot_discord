@@ -16,8 +16,11 @@ class Test(commands.Cog):
         await interaction.response.send_message(date, ephemeral=False)
 
     @today_slash.error
-    async def say_error(self,interaction: discord.Interaction, error):
-        await interaction.response.send_message("Tu n'as pas les permissions d'exécuter cette commande!", ephemeral=True)
+    async def say_error(self, interaction: discord.Interaction, error):
+        if isinstance(error, commands.CheckFailure):
+            await interaction.response.send_message("Tu n'as pas les permissions !", ephemeral=True)
+        else:
+            await interaction.response.send_message(f"Une erreur s'est produite : {error}", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Test(bot))

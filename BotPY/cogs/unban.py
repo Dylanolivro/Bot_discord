@@ -13,7 +13,19 @@ class Unban(commands.Cog):
 
     @app_commands.command(name="unban", description="Debannir un utilisateur")
     @app_commands.default_permissions(administrator=True)
-    async def unban_slash(self, interaction: discord.Interaction, user: discord.User, reason: str = None):
+    async def unban_slash(self, interaction: discord.Interaction, user_id: str, reason: str = None):
+        user_id = int(user_id)
+        banned_users = [ban async for ban in interaction.guild.bans()]
+        user = None
+        for ban in banned_users:
+            if ban.user.id == user_id:
+                user = ban.user
+                break
+
+        if user is None:
+            await interaction.response.send_message(f"L'utilisateur avec l'ID {user_id} n'est pas dans la liste des bannis.", ephemeral=True)
+            return
+
         if reason is None:
             reason = "Aucune raison fournie"
         ts = calendar.timegm(time.gmtime())
@@ -27,8 +39,11 @@ class Unban(commands.Cog):
         await channel.send(embed=embed)
 
     @unban_slash.error
-    async def say_error(self,interaction: discord.Interaction, error):
-        await interaction.response.send_message("Tu n'as pas les permissions d'exécuter cette commande!", ephemeral=True)
+    async def say_error(self, interaction: discord.Interaction, error):
+        if isinstance(error, commands.CheckFailure):
+            await interaction.response.send_message("Tu n'as pas les permissions !", ephemeral=True)
+        else:
+            await interaction.response.send_message(f"Une erreur s'est produite : {error}", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Unban(bot))
