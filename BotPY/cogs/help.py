@@ -1,19 +1,18 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-
+# ! NE FONCTIONNE PAS
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @app_commands.command(name="help", description="Affiche toutes les commandes du bot")
     async def help_slash(self, interaction: discord.Interaction):
-        commands = [f"/{command.name} - {command.description}" for command in self.bot.commands]
-        
+        commands = [f"/{command.name} - {command.description}" for command in self.bot.slash_commands]
+
         print(commands)
 
         await interaction.response.send_message("\n".join(commands), ephemeral=False)
-
 
     @help_slash.error
     async def say_error(self, interaction: discord.Interaction, error):

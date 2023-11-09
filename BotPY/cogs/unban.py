@@ -5,8 +5,6 @@ import datetime
 import calendar
 import time
 
-# ! FONCTIONNE MAIS AMELIORATION POUR QU'ON PUISSE DEBAN UN USER MAIS LONGTEMPS APRES
-
 class Unban(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

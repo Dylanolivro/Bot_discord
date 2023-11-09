@@ -18,8 +18,12 @@ Ce bot offre plusieurs commandes :
 - `ban` : Bannit un utilisateur.
 - `banlist` : Affiche la liste des utilisateurs bannis.
 - `calcul` : Calcul 2 nombres, addition, soustraction, multiplication et division.
+- `help` : Affiche la liste des commandes avec leur description.
+- `joke` : Affiche une blague aléatoire.
 - `message` : Envoie un message.
 - `ping` : Vérifie la latence du bot.
+- `poll` : Créer un sondage à réponse unique.
+- `role` : Création d'un message qui va permettre d'attribuer des rôles en fonctions des réactions.
 - `today` : Affiche la date du jour au format : lundi 01 janvier 2000.
 - `unban` : Débannit un utilisateur.
 
