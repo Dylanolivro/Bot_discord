@@ -7,8 +7,9 @@ Un bot Discord écrit en Python, utilisant la bibliothèque discord.py.
 Pour installer les dépendances nécessaires, exécutez les commandes suivantes :
 
 ```bash
-pip install python-dotenv
 py -3 -m pip install -U discord.py
+pip install python-dotenv
+python -m pip install requests
 ```
 
 ## Commandes disponibles
@@ -29,10 +30,10 @@ Ce bot offre plusieurs commandes :
 
 ## Configuration
 
-Pour utiliser ce Bot, dans un fichier `.env` déclarer le token de votre bot comme ceci :
+Pour utiliser ce Bot, dans un fichier `.env` à la racine du projet, déclarer le token de votre bot comme ceci :
 
 ```bash
 DISCORD_TOKEN=votre_token
 ```
 
-Ensuite, remplacez la valeur dans la constante **CHANNEL_LOGS_BAN_UNBAN** par l'ID ou vous voulez que les logs des bans et unbans apparaissent.
+Ensuite, remplacez la valeur de la constante **CHANNEL_LOGS_BAN_UNBAN** par l'ID ou vous voulez que les logs des bans et unbans apparaissent.

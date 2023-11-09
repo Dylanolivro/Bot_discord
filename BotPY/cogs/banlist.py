@@ -11,7 +11,7 @@ class BanList(commands.Cog):
     async def banlist_slash(self, interaction: discord.Interaction):
         banned_users = [ban async for ban in interaction.guild.bans()]
         if not banned_users:
-            await interaction.response.send_message("Ce serveur n'a encore banni personne", ephemeral=True)
+            await interaction.response.send_message("Il n'y a aucune personne banni", ephemeral=True)
             return
 
         pretty_list = set()

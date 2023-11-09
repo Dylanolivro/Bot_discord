@@ -1,18 +1,30 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
+import json
 
 class RoleReact(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.role_message_id = None 
+        self.role_message_id = self.load_role_message_id()
         self.emoji_to_role = {
-            "🟤":1172181582170300477,
-            "⚪":1172181646213120010,
-            "🔵":1172188196180865078,
-            "🔴":1172188051972300860,
-            "🟡":1172188011597930496
+            "🟤":1172181582170300477, # Paris
+            "⚪":1172181646213120010, # Toulon
+            "🔵":1172188196180865078, # Rennes
+            "🔴":1172188051972300860, # Marseille
+            "🟡":1172188011597930496  # Lyon
         }
+
+    def load_role_message_id(self):
+        try:
+            with open('role_message_id.json', 'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return None
+
+    def save_role_message_id(self):
+        with open('role_message_id.json', 'w') as f:
+            json.dump(self.role_message_id, f)
 
     @app_commands.command(name="role", description="Créer un message pour choisir des rôles.")
     @app_commands.default_permissions(administrator=True)
@@ -21,6 +33,7 @@ class RoleReact(commands.Cog):
         question = "Veuillez choisir une reaction pour avoir un role"
         message = await interaction.followup.send(question, ephemeral=False)
         self.role_message_id = message.id
+        self.save_role_message_id()
         for emoji in self.emoji_to_role:
             await message.add_reaction(emoji)
 

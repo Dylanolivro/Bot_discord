@@ -14,11 +14,11 @@ class Poll(commands.Cog):
         message = await interaction.followup.send(question, ephemeral=False)
         for emoji in self.allowed_reactions:
             await message.add_reaction(emoji)
-        self.poll_message_id = message.id  # Ajoutez cette ligne
+        self.poll_message_id = message.id 
 
     @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
-        if user != self.bot.user and reaction.message.id == self.poll_message_id:  # Modifiez cette ligne
+        if user != self.bot.user and reaction.message.id == self.poll_message_id:
             if str(reaction.emoji) in self.allowed_reactions:
                 for emoji in self.allowed_reactions:
                     if str(reaction.emoji) != emoji:
