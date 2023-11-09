@@ -16,11 +16,12 @@ py -3 -m pip install -U discord.py
 Ce bot offre plusieurs commandes :
 
 - `ban` : Bannit un utilisateur.
-- `unban` : Débannit un utilisateur.
 - `banlist` : Affiche la liste des utilisateurs bannis.
-- `ping` : Vérifie la latence du bot.
+- `calcul` : Calcul 2 nombres, addition, soustraction, multiplication et division.
 - `message` : Envoie un message.
-- `test` : Commande de test.
+- `ping` : Vérifie la latence du bot.
+- `today` : Affiche la date du jour au format : lundi 01 janvier 2000.
+- `unban` : Débannit un utilisateur.
 
 ## Configuration
 
