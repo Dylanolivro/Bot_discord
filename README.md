@@ -29,12 +29,25 @@ Ce bot offre plusieurs commandes :
 - `today` : Affiche la date du jour au format : lundi 01 janvier 2000.
 - `unban` : Débannit un utilisateur.
 
+
+## Fonctionnalités supplémentaires
+
+- Il repère les messages qui finissent par “quoi” et “ping”, et y répond par “feur” et “pong”.
+
+- Il ajoute un message dans un canal dédié pour chaque nouvelle ligne ajoutée à la base de données.
+
+
 ## Configuration
 
-Pour utiliser ce Bot, dans un fichier `.env` à la racine du projet, déclarer le token de votre bot comme ceci :
+Pour utiliser ce Bot, dans un fichier `.env` au même niveau que le fichier `main.py`, déclarer le token de votre bot comme ceci :
 
 ```bash
 DISCORD_TOKEN=votre_token
 ```
 
-Ensuite, remplacez la valeur de la constante **CHANNEL_LOGS_BAN_UNBAN** par l'ID ou vous voulez que les logs des bans et unbans apparaissent.
+Ensuite, n’oubliez pas de remplacer les valeurs des constantes dans le fichier `config.py` :
+
+- **CHANNEL_LOGS_BAN_UNBAN**
+- **CHANNEL_MESSAGE_AUTO**
+
+ par l’ID des canaux où vous souhaitez que les journaux des bannissements, des débannissements et des messages automatiques apparaissent.

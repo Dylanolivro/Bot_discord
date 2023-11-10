@@ -7,7 +7,7 @@ class ClearChannel(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="clear", description="Supprime tous les messages d'un canal ou un nombre spécifique de ceux-ci.")
-    @commands.has_permissions(manage_messages=True)
+    @app_commands.default_permissions(administrator=True)
     async def clear_slash(self, interaction: discord.Interaction, number: int = None):
         if number is None:
             await interaction.response.send_message("Tous les messages ont été effacés.", ephemeral=True)

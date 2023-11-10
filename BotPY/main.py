@@ -2,6 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from config import Config
+from config import DatabaseChecker
 
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix="?",intents=intents)
@@ -22,5 +23,8 @@ async def on_ready():
         print(f"Synced {len(synced)} commands")
     except Exception as e:
         print(e)
+
+    checker = DatabaseChecker(bot, Config.CHANNEL_MESSAGE_AUTO)
+    checker.start()
 
 bot.run(token)
