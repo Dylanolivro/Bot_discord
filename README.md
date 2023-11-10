@@ -19,6 +19,7 @@ Ce bot offre plusieurs commandes :
 - `ban` : Bannit un utilisateur.
 - `banlist` : Affiche la liste des utilisateurs bannis.
 - `calcul` : Calcul 2 nombres, addition, soustraction, multiplication et division.
+- `clear` : Supprime tous les messages d'un canal ou un nombre spécifique de ceux-ci.
 - `help` : Affiche la liste des commandes avec leur description.
 - `joke` : Affiche une blague aléatoire.
 - `message` : Envoie un message.
