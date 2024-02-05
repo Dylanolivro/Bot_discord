@@ -52,7 +52,3 @@ Ensuite, n’oubliez pas de remplacer les valeurs des constantes dans le fichier
 - **CHANNEL_MESSAGE_AUTO**
 
  par l’ID des canaux où vous souhaitez que les journaux des bannissements, des débannissements et des messages automatiques apparaissent.
-
-## 🔗 Links
-
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://dylan-olivro.students-laplateforme.io/)
